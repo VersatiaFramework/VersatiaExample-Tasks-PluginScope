@@ -1,0 +1,4 @@
+# Extracted into the plugin's data folder on the first start; edit it there and run /versatia reload combat.
+combat-tag:
+  # How long a hit keeps a player in combat: a duration such as 10s, 1m or 1m 30s
+  duration: 10s

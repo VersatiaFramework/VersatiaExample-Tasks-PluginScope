@@ -1,0 +1,9 @@
+name: VersatiaExample-Tasks-PluginScope
+version: '${version}'
+main: com.github.marcoral.versatia.example.pluginscope.PluginScopePlugin
+api-version: '1.21'
+author: Versatia
+description: Combat tags as coroutines of the plugin's own scope, one per player.
+# Kotlin and kotlinx.coroutines classes come from VersatiaCore's class loader; do not list kotlin-stdlib or kotlinx-coroutines here
+depend:
+  - VersatiaCore
