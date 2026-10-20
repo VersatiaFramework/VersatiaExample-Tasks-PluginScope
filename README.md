@@ -27,6 +27,9 @@ Steve reads `You are in combat for 10s; leaving now kills you` at the first hit 
   last hit.
 - Leave the server while tagged: `Steve left in combat and was killed`; `tags.cancel` returned
   true because a timer was running. Leave once you are safe and nothing happens.
+- A hit that another plugin cancels, in a protected spawn region for example, does not tag you:
+  `onDamage` listens at `EventPriority.MONITOR` with `ignoreCancelled = true`, so it sees the
+  event after every plugin that could cancel it.
 - Set `duration: 30s` in `plugins/VersatiaExample-Tasks-PluginScope/config.yml` and run
   `/versatia reload combat` while tagged: the running timer survives the reload with its old
   duration, since a reload leaves the scope's coroutines alone; the next hit starts a 30s tag.
