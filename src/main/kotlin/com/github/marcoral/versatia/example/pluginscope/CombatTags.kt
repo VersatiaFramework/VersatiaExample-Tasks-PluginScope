@@ -9,6 +9,7 @@ import java.util.logging.Logger
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.delay
 import net.kyori.adventure.text.Component.text
+import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -35,10 +36,10 @@ class CombatTags(private val logger: Logger, scope: PluginScope) : Listener {
         if (event.damager !is LivingEntity) return
         val tagged = player.uniqueId in tags
         logger.info(if (tagged) "${player.name} hit again, the tag starts over" else "${player.name} tagged for $duration")
-        if (!tagged) player.sendMessage(text("You are in combat for $duration; leaving now kills you"))
+        if (!tagged) player.sendMessage(text("You are in combat for ", NamedTextColor.RED).append(text(duration.toString(), NamedTextColor.YELLOW)).append(text("; leaving now kills you")))
         tags.launch(player.uniqueId) {
             delay(duration)
-            player.sendMessage(text("You are out of combat"))
+            player.sendMessage(text("You are out of combat", NamedTextColor.GREEN))
             logger.info("${player.name} is safe")
         }
     }
