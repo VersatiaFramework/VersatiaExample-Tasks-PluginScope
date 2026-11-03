@@ -2,9 +2,9 @@
 
 An injected `PluginScope` launches coroutines of your own that live as long as the plugin: here a combat tag per player, kept in `KeyedJobs` so that every hit replaces the running timer, and cancelled when the player leaves.
 
-Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Your own coroutines](https://versatiaframework.github.io/VersatiaDocs/docs/tasks#your-own-coroutines).
+Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Your own coroutines](https://versatia.dev/docs/tasks#your-own-coroutines).
 
-**Start with** [`CombatTags.kt`](src/main/kotlin/com/github/marcoral/versatia/example/pluginscope/CombatTags.kt); the configuration is [`resources/config.yml`](src/main/resources/resources/config.yml).
+**Start with** [`CombatTags.kt`](src/main/kotlin/dev/versatia/example/pluginscope/CombatTags.kt); the configuration is [`resources/config.yml`](src/main/resources/resources/config.yml).
 
 ## What the log shows
 
@@ -38,7 +38,7 @@ Steve reads `You are in combat for 10s; leaving now kills you` at the first hit 
 
 Requires JDK 21 and VersatiaAPI and
 VersatiaCatalog, which supplies every version, in your local Maven repository (`./gradlew publishToMavenLocal` in each checkout; see
-[Building the framework](https://versatiaframework.github.io/VersatiaDocs/docs/contributing/building));
+[Building the framework](https://versatia.dev/docs/contributing/building));
 running it requires a Paper 1.21.4 server with VersatiaCore installed, and the
 [CommandAPI](https://commandapi.jorel.dev) 12.x plugin for `/versatia reload`.
 
@@ -51,6 +51,6 @@ To have the JAR copied to your server after every build, copy `local.properties.
 `build/generated/ksp/main/kotlin`; open it to see exactly what the runtime executes.
 
 The Versatia version is `versatiaVersion` in `gradle.properties`; `settings.gradle.kts` imports
-the matching [VersatiaCatalog](https://versatiaframework.github.io/VersatiaDocs/docs/getting-started/installation#versatia-catalog),
+the matching [VersatiaCatalog](https://versatia.dev/docs/getting-started/installation#versatia-catalog),
 so the build script writes `libs.versatia.api` and `alias(libs.plugins.ksp)` instead of version
 numbers.

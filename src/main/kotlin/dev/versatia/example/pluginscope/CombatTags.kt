@@ -1,9 +1,9 @@
-package com.github.marcoral.versatia.example.pluginscope
+package dev.versatia.example.pluginscope
 
-import com.github.marcoral.versatia.config.Value
-import com.github.marcoral.versatia.di.LocalBean
-import com.github.marcoral.versatia.task.PluginScope
-import com.github.marcoral.versatia.task.keyedJobs
+import dev.versatia.config.Value
+import dev.versatia.di.LocalBean
+import dev.versatia.task.PluginScope
+import dev.versatia.task.keyedJobs
 import java.util.UUID
 import java.util.logging.Logger
 import kotlin.time.Duration.Companion.seconds

@@ -1,6 +1,6 @@
 name: VersatiaExample-Tasks-PluginScope
 version: '${version}'
-main: com.github.marcoral.versatia.example.pluginscope.PluginScopePlugin
+main: dev.versatia.example.pluginscope.PluginScopePlugin
 api-version: '1.21'
 author: Versatia
 description: Combat tags as coroutines of the plugin's own scope, one per player.
