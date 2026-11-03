@@ -2,7 +2,7 @@
 
 An injected `PluginScope` launches coroutines of your own that live as long as the plugin: here a combat tag per player, kept in `KeyedJobs` so that every hit replaces the running timer, and cancelled when the player leaves.
 
-Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Your own coroutines](https://versatia.dev/docs/tasks#your-own-coroutines).
+Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Your own coroutines](https://versatia.dev/docs/tasks/coroutines).
 
 **Start with** [`CombatTags.kt`](src/main/kotlin/dev/versatia/example/pluginscope/CombatTags.kt); the configuration is [`resources/config.yml`](src/main/resources/resources/config.yml).
 
