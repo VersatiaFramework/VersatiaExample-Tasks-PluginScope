@@ -36,10 +36,10 @@ Steve reads `You are in combat for 10s; leaving now kills you` at the first hit 
 
 ## Building
 
-Requires JDK 21 and VersatiaAPI and
+Requires JDK 25 and VersatiaAPI and
 VersatiaCatalog, which supplies every version, in your local Maven repository (`./gradlew publishToMavenLocal` in each checkout; see
 [Building the framework](https://versatia.dev/docs/contributing/building));
-running it requires a Paper 1.21.4 server with VersatiaCore installed, and the
+running it requires a Paper 26.3 server with VersatiaCore installed, and the
 [CommandAPI](https://commandapi.jorel.dev) 12.x plugin for `/versatia reload`.
 
 ```bash
