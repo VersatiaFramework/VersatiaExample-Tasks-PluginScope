@@ -4,12 +4,12 @@ import dev.versatia.config.Value
 import dev.versatia.di.LocalBean
 import dev.versatia.task.PluginScope
 import dev.versatia.task.keyedJobs
+import dev.versatia.text.Text
+import dev.versatia.text.arg
 import java.util.UUID
 import java.util.logging.Logger
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.delay
-import net.kyori.adventure.text.Component.text
-import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -24,7 +24,7 @@ import org.bukkit.event.player.PlayerQuitEvent
  * skips cancelled damage. The plugin's stop cancels them all; a reload leaves them running.
  */
 @LocalBean
-class CombatTags(private val logger: Logger, scope: PluginScope) : Listener {
+class CombatTags(private val logger: Logger, scope: PluginScope, private val text: Text) : Listener {
     @Value("combat-tag.duration")
     var duration = 10.seconds
 
@@ -36,10 +36,10 @@ class CombatTags(private val logger: Logger, scope: PluginScope) : Listener {
         if (event.damager !is LivingEntity) return
         val tagged = player.uniqueId in tags
         logger.info(if (tagged) "${player.name} hit again, the tag starts over" else "${player.name} tagged for $duration")
-        if (!tagged) player.sendMessage(text("You are in combat for ", NamedTextColor.RED).append(text(duration.toString(), NamedTextColor.YELLOW)).append(text("; leaving now kills you")))
+        if (!tagged) player.sendMessage(text.parse("<warning>You are in combat for {duration}; leaving now kills you", arg("duration", duration)))
         tags.launch(player.uniqueId) {
             delay(duration)
-            player.sendMessage(text("You are out of combat", NamedTextColor.GREEN))
+            player.sendMessage(text.parse("<positive>You are out of combat"))
             logger.info("${player.name} is safe")
         }
     }
